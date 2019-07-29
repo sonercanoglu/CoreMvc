@@ -1,0 +1,124 @@
+2019-07-29 14:44:37.310 +02:00 [Warning] Microsoft.EntityFrameworkCore.Model.Validation: No type was specified for the decimal column 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.
+2019-07-29 14:44:37.368 +02:00 [Information] Microsoft.EntityFrameworkCore.Infrastructure: Entity Framework Core 2.1.8-servicing-32085 initialized 'CoreMvcDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: using lazy-loading proxies 
+2019-07-29 14:44:37.511 +02:00 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (41ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-07-29 14:44:37.652 +02:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\ASUS-N750JK\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-29 14:44:38.173 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/  
+2019-07-29 14:44:38.177 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:21595/  0
+2019-07-29 14:44:38.232 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 57.0736ms 200 
+2019-07-29 14:44:38.425 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "Index", controller = "Home"}. Executing action CoreMvc.Controllers.HomeController.Index (CoreMvc)
+2019-07-29 14:44:38.439 +02:00 [Information] Microsoft.AspNetCore.Authorization.DefaultAuthorizationService: Authorization failed.
+2019-07-29 14:44:38.443 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-07-29 14:44:38.449 +02:00 [Information] Microsoft.AspNetCore.Mvc.ChallengeResult: Executing ChallengeResult with authentication schemes ().
+2019-07-29 14:44:38.459 +02:00 [Information] Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler: AuthenticationScheme: Cookies was challenged.
+2019-07-29 14:44:38.464 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action CoreMvc.Controllers.HomeController.Index (CoreMvc) in 33.3329ms
+2019-07-29 14:44:38.473 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 300.8073ms 302 
+2019-07-29 14:44:38.478 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/Account/Login?ReturnUrl=%2F  
+2019-07-29 14:44:38.494 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "Login", controller = "Account"}. Executing action CoreMvc.Controllers.AccountController.Login (CoreMvc)
+2019-07-29 14:44:38.506 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method CoreMvc.Controllers.AccountController.Login (CoreMvc) - Validation state: Valid
+2019-07-29 14:44:38.513 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method CoreMvc.Controllers.AccountController.Login (CoreMvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.8778ms.
+2019-07-29 14:44:38.541 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view Login.
+2019-07-29 14:44:38.628 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view Login executed in 105.7725ms.
+2019-07-29 14:44:38.632 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action CoreMvc.Controllers.AccountController.Login (CoreMvc) in 134.8054ms
+2019-07-29 14:44:38.642 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 162.7376ms 200 text/html; charset=utf-8
+2019-07-29 14:44:38.665 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/@coreui/icons/css/coreui-icons.min.css  
+2019-07-29 14:44:38.672 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/flag-icon-css/css/flag-icon.min.css  
+2019-07-29 14:44:38.678 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/simple-line-icons/css/simple-line-icons.css  
+2019-07-29 14:44:38.699 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/font-awesome/css/font-awesome.min.css  
+2019-07-29 14:44:38.720 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/vendors/pace-progress/css/pace.min.css  
+2019-07-29 14:44:38.725 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/css/style.css  
+2019-07-29 14:44:38.732 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/popper.js/dist/umd/popper.min.js  
+2019-07-29 14:44:38.744 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/jquery/dist/jquery.min.js  
+2019-07-29 14:44:38.750 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/@coreui/coreui/dist/js/coreui.min.js  
+2019-07-29 14:44:38.768 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/@coreui/icons/css/coreui-icons.min.css'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\@coreui\icons\css\coreui-icons.min.css'
+2019-07-29 14:44:38.774 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/flag-icon-css/css/flag-icon.min.css'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\flag-icon-css\css\flag-icon.min.css'
+2019-07-29 14:44:38.778 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/simple-line-icons/css/simple-line-icons.css'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\simple-line-icons\css\simple-line-icons.css'
+2019-07-29 14:44:38.783 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 117.3115ms 200 text/css
+2019-07-29 14:44:38.787 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 108.2734ms 200 text/css
+2019-07-29 14:44:38.791 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 108.9551ms 200 text/css
+2019-07-29 14:44:38.798 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/pace-progress/pace.min.js  
+2019-07-29 14:44:38.805 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/perfect-scrollbar/dist/perfect-scrollbar.min.js  
+2019-07-29 14:44:38.816 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/@coreui/coreui/dist/js/coreui.min.js'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\@coreui\coreui\dist\js\coreui.min.js'
+2019-07-29 14:44:38.811 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/bootstrap/dist/js/bootstrap.min.js  
+2019-07-29 14:44:38.820 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/vendors/pace-progress/css/pace.min.css'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\vendors\pace-progress\css\pace.min.css'
+2019-07-29 14:44:38.825 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 104.9912ms 200 text/css
+2019-07-29 14:44:38.830 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 75.1877ms 200 application/javascript
+2019-07-29 14:44:38.886 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.min.js'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js'
+2019-07-29 14:44:38.891 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/perfect-scrollbar/dist/perfect-scrollbar.min.js'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\perfect-scrollbar\dist\perfect-scrollbar.min.js'
+2019-07-29 14:44:38.953 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/font-awesome/css/font-awesome.min.css'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\font-awesome\css\font-awesome.min.css'
+2019-07-29 14:44:38.957 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/pace-progress/pace.min.js'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\pace-progress\pace.min.js'
+2019-07-29 14:44:38.961 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 275.8944ms 200 text/css
+2019-07-29 14:44:38.966 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 170.0017ms 200 application/javascript
+2019-07-29 14:44:38.971 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\jquery\dist\jquery.min.js'
+2019-07-29 14:44:38.980 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/css/style.css'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\css\style.css'
+2019-07-29 14:44:38.985 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 247.5436ms 200 application/javascript
+2019-07-29 14:44:38.990 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 259.0915ms 200 text/css
+2019-07-29 14:44:38.995 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/popper.js/dist/umd/popper.min.js'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\popper.js\dist\umd\popper.min.js'
+2019-07-29 14:44:39.001 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 118.0479ms 200 application/javascript
+2019-07-29 14:44:39.006 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 272.1602ms 200 application/javascript
+2019-07-29 14:44:39.012 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 111.3983ms 200 application/javascript
+2019-07-29 14:44:39.032 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/simple-line-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0  
+2019-07-29 14:44:39.039 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/simple-line-icons/fonts/Simple-Line-Icons.woff2'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\simple-line-icons\fonts\Simple-Line-Icons.woff2'
+2019-07-29 14:44:39.044 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 14.68ms 200 font/woff2
+2019-07-29 14:46:07.166 +02:00 [Warning] Microsoft.EntityFrameworkCore.Model.Validation: No type was specified for the decimal column 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.
+2019-07-29 14:46:07.257 +02:00 [Information] Microsoft.EntityFrameworkCore.Infrastructure: Entity Framework Core 2.1.8-servicing-32085 initialized 'CoreMvcDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: using lazy-loading proxies 
+2019-07-29 14:46:07.458 +02:00 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (49ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-07-29 14:46:07.619 +02:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\ASUS-N750JK\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-07-29 14:46:08.290 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/  
+2019-07-29 14:46:08.315 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:21595/  0
+2019-07-29 14:46:08.380 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 86.4362ms 200 
+2019-07-29 14:46:08.576 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "Index", controller = "Home"}. Executing action CoreMvc.Controllers.HomeController.Index (CoreMvc)
+2019-07-29 14:46:08.594 +02:00 [Information] Microsoft.AspNetCore.Authorization.DefaultAuthorizationService: Authorization failed.
+2019-07-29 14:46:08.599 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-07-29 14:46:08.607 +02:00 [Information] Microsoft.AspNetCore.Mvc.ChallengeResult: Executing ChallengeResult with authentication schemes ().
+2019-07-29 14:46:08.618 +02:00 [Information] Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler: AuthenticationScheme: Cookies was challenged.
+2019-07-29 14:46:08.624 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action CoreMvc.Controllers.HomeController.Index (CoreMvc) in 41.4959ms
+2019-07-29 14:46:08.636 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 344.4527ms 302 
+2019-07-29 14:46:08.667 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/Account/Login?ReturnUrl=%2F  
+2019-07-29 14:46:08.680 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "Login", controller = "Account"}. Executing action CoreMvc.Controllers.AccountController.Login (CoreMvc)
+2019-07-29 14:46:08.692 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method CoreMvc.Controllers.AccountController.Login (CoreMvc) - Validation state: Valid
+2019-07-29 14:46:08.701 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method CoreMvc.Controllers.AccountController.Login (CoreMvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 2.122ms.
+2019-07-29 14:46:08.727 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executing ViewResult, running view Login.
+2019-07-29 14:46:08.797 +02:00 [Information] Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor: Executed ViewResult - view Login executed in 87.4053ms.
+2019-07-29 14:46:08.801 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action CoreMvc.Controllers.AccountController.Login (CoreMvc) in 117.8229ms
+2019-07-29 14:46:08.810 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 144.9442ms 200 text/html; charset=utf-8
+2019-07-29 14:46:08.834 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/flag-icon-css/css/flag-icon.min.css  
+2019-07-29 14:46:08.840 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/@coreui/icons/css/coreui-icons.min.css  
+2019-07-29 14:46:08.847 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/font-awesome/css/font-awesome.min.css  
+2019-07-29 14:46:08.860 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/css/style.css  
+2019-07-29 14:46:08.866 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/simple-line-icons/css/simple-line-icons.css  
+2019-07-29 14:46:08.902 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/vendors/pace-progress/css/pace.min.css  
+2019-07-29 14:46:08.916 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/jquery/dist/jquery.min.js  
+2019-07-29 14:46:08.921 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/bootstrap/dist/js/bootstrap.min.js  
+2019-07-29 14:46:08.926 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/pace-progress/pace.min.js  
+2019-07-29 14:46:08.939 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.min.js'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js'
+2019-07-29 14:46:08.943 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/vendors/pace-progress/css/pace.min.css'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\vendors\pace-progress\css\pace.min.css'
+2019-07-29 14:46:08.947 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 23.626ms 200 application/javascript
+2019-07-29 14:46:08.951 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 55.6966ms 200 text/css
+2019-07-29 14:46:08.956 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/popper.js/dist/umd/popper.min.js  
+2019-07-29 14:46:08.963 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/@coreui/coreui/dist/js/coreui.min.js  
+2019-07-29 14:46:08.969 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/@coreui/coreui/dist/js/coreui.min.js'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\@coreui\coreui\dist\js\coreui.min.js'
+2019-07-29 14:46:08.974 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 11.6958ms 200 application/javascript
+2019-07-29 14:46:08.979 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/perfect-scrollbar/dist/perfect-scrollbar.min.js  
+2019-07-29 14:46:08.991 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/@coreui/icons/css/coreui-icons.min.css'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\@coreui\icons\css\coreui-icons.min.css'
+2019-07-29 14:46:08.995 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/simple-line-icons/css/simple-line-icons.css'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\simple-line-icons\css\simple-line-icons.css'
+2019-07-29 14:46:08.999 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/flag-icon-css/css/flag-icon.min.css'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\flag-icon-css\css\flag-icon.min.css'
+2019-07-29 14:46:09.003 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/font-awesome/css/font-awesome.min.css'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\font-awesome\css\font-awesome.min.css'
+2019-07-29 14:46:09.006 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/perfect-scrollbar/dist/perfect-scrollbar.min.js'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\perfect-scrollbar\dist\perfect-scrollbar.min.js'
+2019-07-29 14:46:09.010 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/popper.js/dist/umd/popper.min.js'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\popper.js\dist\umd\popper.min.js'
+2019-07-29 14:46:09.014 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/pace-progress/pace.min.js'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\pace-progress\pace.min.js'
+2019-07-29 14:46:09.026 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 179.5477ms 200 text/css
+2019-07-29 14:46:09.052 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 191.9514ms 200 text/css
+2019-07-29 14:46:09.064 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 156.3732ms 200 text/css
+2019-07-29 14:46:09.071 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 193.6406ms 200 text/css
+2019-07-29 14:46:09.076 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 41.6657ms 200 application/javascript
+2019-07-29 14:46:09.081 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 64.7705ms 200 application/javascript
+2019-07-29 14:46:09.086 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\jquery\dist\jquery.min.js'
+2019-07-29 14:46:09.091 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/css/style.css'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\css\style.css'
+2019-07-29 14:46:09.098 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 184.5491ms 200 application/javascript
+2019-07-29 14:46:09.102 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 244.9255ms 200 text/css
+2019-07-29 14:46:09.106 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 98.6175ms 200 application/javascript
+2019-07-29 14:46:09.132 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44342/lib/simple-line-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0  
+2019-07-29 14:46:09.141 +02:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/lib/simple-line-icons/fonts/Simple-Line-Icons.woff2'. Physical path: 'E:\VisualStudio Projects 2017\CoreMvc\CoreMvc\wwwroot\lib\simple-line-icons\fonts\Simple-Line-Icons.woff2'
+2019-07-29 14:46:09.147 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 13.4689ms 200 font/woff2

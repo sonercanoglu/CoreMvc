@@ -1,0 +1,57 @@
+﻿@model BrandModel
+@{
+    ViewData["Title"] = "Brand - Edit";
+}
+
+<!-- Breadcrumb-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a asp-action="Index">Models</a>
+    </li>
+    <li class="breadcrumb-item active">Edit</li>
+</ol>
+
+<div class="container-fluid">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Edit Model</strong>
+                        Form
+                    </div>
+                    <form asp-action="Edit" method="post" class="form-horizontal">
+                        @Html.AntiForgeryToken()
+                        <div class="card-body">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="Id" />
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label" asp-for="Brand_Id">Brand</label>
+                                <div class="col-md-2">
+                                    <select asp-for="Brand_Id" class="form-control" asp-items="ViewBag.BrandList"></select>
+                                    <span asp-validation-for="Brand_Id" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label" asp-for="Name">Name</label>
+                                <div class="col-md-2">
+                                    <input type="text" asp-for="Name" class="form-control" placeholder="Name">
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-warning">
+                                <i class="fa fa-edit fa-lg"></i> Update
+                            </button>
+                            <a asp-action="Index" class="btn btn-danger">
+                                <i class="fa fa-minus-square fa-lg"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--/.col-->
+        </div>
+    </div>
+</div>

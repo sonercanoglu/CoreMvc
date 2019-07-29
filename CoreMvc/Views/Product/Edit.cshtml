@@ -1,0 +1,187 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Product - Edit";
+}
+
+<!-- Breadcrumb-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a asp-action="Index">Products</a>
+    </li>
+    <li class="breadcrumb-item active">Edit</li>
+</ol>
+
+<div class="container-fluid">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Edit Product</strong>
+                        Form
+                    </div>
+                    <form asp-action="Edit" method="post" class="form-horizontal">
+                        @Html.AntiForgeryToken()
+                        <div class="card-body">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="Id" />
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label" asp-for="Brand_Id">Brand</label>
+                                <div class="col-md-2">
+                                    <div class="dropdown">
+                                        <button class="form-control dropdown-toggle" type="button" id="dropdownBrand" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                            Select Brand
+                                        </button>
+                                        <div id="menuBrand" class="dropdown-menu" aria-labelledby="dropdownBrand">
+                                            <input type="search" class="form-control" id="searchBrand" placeholder="Brand" autofocus="autofocus">
+                                            <div id="menuItemsBrand">
+                                                @{
+                                                    foreach (SelectListItem f in ViewBag.BrandList)
+                                                    {
+                                                        <input type="button" class="dropdown-item dropdown-itemBrand" value="@f.Text" alt="@f.Value" />
+                                                    }
+                                                }
+                                            </div>
+                                            <div id="emptyBrand" class="dropdown-header" style="display:none">No Brand Exist</div>
+                                        </div>
+                                    </div>
+
+                                    @Html.Hidden("Brand_Id", Model.Brand_Id)
+                                    <span asp-validation-for="Brand_Id" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label" asp-for="BrandModel_Id">Model</label>
+                                <div class="col-md-2">
+                                    <select asp-for="BrandModel_Id" class="form-control"></select>
+                                    <span asp-validation-for="BrandModel_Id" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label" asp-for="Amount">Amount</label>
+                                <div class="col-md-2">
+                                    <input type="number" asp-for="Amount" class="form-control" placeholder="Amount">
+                                    <span asp-validation-for="Amount" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label" asp-for="Price">Price</label>
+                                <div class="col-md-2">
+                                    <input type="number" min="0" step="0.01" asp-for="Price" class="form-control" placeholder="0.00">
+                                    <span asp-validation-for="Price" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label" asp-for="Active">Active</label>
+                                <div class="col-md-2">
+                                    <div class="form-check checkbox">
+                                        <input class="form-check-input" type="checkbox" asp-for="Active">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-warning">
+                                <i class="fa fa-edit fa-lg"></i> Update
+                            </button>
+                            <a asp-action="Index" class="btn btn-danger">
+                                <i class="fa fa-minus-square fa-lg"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--/.col-->
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    //Find the input search box
+    let searchBrand = document.getElementById("searchBrand");
+
+    //Find every item inside the dropdown
+    let itemsBrand = document.getElementsByClassName("dropdown-itemBrand");
+
+    if ($('#Brand_Id').val() != 0) {
+        for (i = 0; i < itemsBrand.length; i++) {
+            if (itemsBrand[i].alt == $('#Brand_Id').val()) {
+                $('#dropdownBrand').text(itemsBrand[i].value);
+            }
+        }
+    }
+
+    //Capture the event when user types into the search box
+    window.addEventListener('input', function () {
+        filter(searchBrand.value.trim().toLowerCase())
+    })
+
+    //For every word entered by the user, check if the symbol starts with that word
+    //If it does show the symbol, else hide it
+    function filter(word) {
+        let length = itemsBrand.length
+        let collection = []
+        let hidden = 0
+        for (let i = 0; i < length; i++) {
+            if (itemsBrand[i].value.toLowerCase().startsWith(word)) {
+                $(itemsBrand[i]).show()
+            }
+            else {
+                $(itemsBrand[i]).hide()
+                hidden++
+            }
+        }
+
+        //If all items are hidden, show the empty view
+        if (hidden === length) {
+            $('#emptyBrand').show()
+        }
+        else {
+            $('#emptyBrand').hide()
+        }
+    }
+
+    //If the user clicks on any item, set the title of the button as the text of the item
+    $('#menuItemsBrand').on('click', '.dropdown-itemBrand', function () {
+        $('#dropdownBrand').text($(this)[0].value);
+        $("#dropdownBrand").dropdown("toggle");
+        $('#Brand_Id').val($(this)[0].alt);
+
+        getModelList($('#Brand_Id').val());
+    })
+
+
+    getModelList($('#Brand_Id').val());
+
+    function getModelList(brand_id) {
+
+        if (brand_id == 0)
+            return;
+
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("GetModelList", "Product")",
+            contentType: "application/json",
+            dataType: "json",
+            data: { "brand_id": brand_id },
+            success: function (response) {
+
+                let dropdown = $('#BrandModel_Id');
+
+                dropdown.empty();
+
+                $.each(response, function (key, entry) {
+                    dropdown.append($('<option></option>').attr('value', entry.value).text(entry.text));
+                })
+
+            },
+            failure: function (response) {
+                alert(response);
+            }
+        });
+    }
+
+</script>
+

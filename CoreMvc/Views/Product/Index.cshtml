@@ -1,0 +1,141 @@
+﻿@model PaginatedList<Product>
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<!-- Breadcrumb-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Products</li>
+</ol>
+<div class="container-fluid">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa fa-align-justify"></i> Product List
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-2">
+                                <form asp-action="Create" method="get">
+                                    <button type="submit" class="btn btn-block btn-primary active" aria-pressed="true">New Product</button>
+                                </form>
+                            </div>
+                            <div class="col-md-6"></div>
+                            <div class="col-md-4">
+                                <form asp-action="Index" method="get">
+                                    <div class="input-group">
+                                        <select id="p_brand_Id" name="p_brand_Id" class="form-control mr-3" asp-items="ViewBag.BrandList" asp-for="@ViewData["CurrentFilterBrandId"]" onchange="getModelList(this.value)">
+                                            <option selected="selected" value="0">Select Brand</option>
+                                        </select>
+                                        <select id="p_brandModel_Id" name="p_brandModel_Id" class="form-control" asp-for="@ViewData["CurrentFilterBrandModelId"]"></select>
+                                        <span class="input-group-append">
+                                            <button type="submit" class="btn btn-primary">Search</button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <table class="table table-responsive-sm table-bordered table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Brand</th>
+                                    <th>Model</th>
+                                    <th>Amount</th>
+                                    <th>Price</th>
+                                    <th>Active</th>
+                                    <th width="13%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model._items.Count() > 0)
+                                {
+                                    @foreach (var product in Model._items)
+                                    {
+                                        <tr>
+                                            <td>@product.Brand.Name</td>
+                                            <td>@product.BrandModel.Name</td>
+                                            <td>@product.Amount</td>
+                                            <td>@product.Price</td>
+                                            <td>@product.Active</td>
+                                            <td class="text-center">
+                                                <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-warning">
+                                                    <i class="fa fa-edit"></i> Edit
+                                                </a>
+                                                <button type="button" class="btn btn-danger active" onclick="setDeleteId(@product.Id)" data-toggle="modal" data-target="#deleteModal">
+                                                    <i class="fa fa-remove"></i> Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="6">
+                                            No Records Found!
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                        <form method="get">
+                            <!-- basic settings -->
+                            <div style="text-align:center">
+                                <paging total-records="Model._TotalRecords"
+                                        page-no="Model._PageIndex"
+                                        page-size="Model._PageSize"
+                                        settings-json="basicWithPrevNext"
+                                        query-string-value="@("p_brand_Id=" + ViewData["CurrentFilterBrandId"]+"&p_brandModel_Id=" + ViewData["CurrentFilterBrandModelId"])">
+                                </paging>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--/.col-->
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    getModelList($('#p_brand_Id').val());
+
+    function getModelList(brand_id) {
+
+        let dropdown = $('#p_brandModel_Id');
+
+        dropdown.empty();
+
+        if (brand_id == 0)
+            return;
+
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("GetModelList", "Product")",
+            contentType: "application/json",
+            dataType: "json",
+            data: { "brand_id": brand_id },
+            success: function (response) {
+
+                dropdown.append('<option selected="true" disabled>Select Model</option>');
+                dropdown.prop('selectedIndex', 0);
+
+                $.each(response, function (key, entry) {
+                    if (entry.value == @ViewData["CurrentFilterBrandModelId"])
+                        dropdown.append($('<option selected="selected"></option>').attr('value', entry.value).text(entry.text));
+                    else
+                        dropdown.append($('<option></option>').attr('value', entry.value).text(entry.text));
+                })
+
+            },
+            failure: function (response) {
+                alert(response);
+            }
+        });
+    }
+
+</script>

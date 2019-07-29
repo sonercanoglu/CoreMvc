@@ -1,0 +1,90 @@
+﻿@model PaginatedList<Brand>
+@{
+    ViewData["Title"] = "Brand List";
+}
+
+<!-- Breadcrumb-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Brands</li>
+</ol>
+<div class="container-fluid">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa fa-align-justify"></i> Brand List
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-2">
+                                <form asp-action="Create" method="get">
+                                    <button type="submit" class="btn btn-block btn-primary active" aria-pressed="true">New Brand</button>
+                                </form>
+                            </div>
+                            <div class="col-md-6"></div>
+                            <div class="col-md-4">
+                                <form asp-action="Index" method="get">
+                                    <div class="input-group">
+                                        <input type="text" id="name" name="name" class="form-control" value="@ViewData["CurrentFilter"]" placeholder="Name">
+                                        <span class="input-group-append">
+                                            <button type="submit" class="btn btn-primary">Search</button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <table class="table table-responsive-sm table-bordered table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th width="13%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model._items.Count() > 0)
+                                {
+                                    @foreach (var brand in Model._items)
+                                    {
+                                        <tr>
+                                            <td>@brand.Name</td>
+                                            <td class="text-center">
+                                                <a asp-action="Edit" asp-route-id="@brand.Id" class="btn btn-warning">
+                                                    <i class="fa fa-edit"></i> Edit
+                                                </a>
+                                                <button type="button" class="btn btn-danger active" onclick="setDeleteId(@brand.Id)" data-toggle="modal" data-target="#deleteModal">
+                                                    <i class="fa fa-remove"></i> Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="2">
+                                            No Records Found!
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                        <form method="get">
+                            <!-- basic settings -->
+                            <div style="text-align:center">
+                                <paging total-records="Model._TotalRecords"
+                                        page-no="Model._PageIndex"
+                                        page-size="Model._PageSize"
+                                        settings-json="basicWithPrevNext"
+                                        query-string-value="@("name=" + ViewData["CurrentFilter"])">
+                                </paging>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--/.col-->
+        </div>
+    </div>
+</div>

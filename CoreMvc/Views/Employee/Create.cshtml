@@ -1,0 +1,89 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Employee - New";
+}
+
+<!-- Breadcrumb-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a asp-action="Index">Employees</a>
+    </li>
+    <li class="breadcrumb-item active">New</li>
+</ol>
+
+<div class="container-fluid">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>New Employee</strong>
+                        Form
+                    </div>
+                    <form asp-action="Create" method="post" class="form-horizontal">
+                        @Html.AntiForgeryToken()
+                        <div class="card-body">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label" asp-for="Name">Name</label>
+                                <div class="col-md-2">
+                                    <input type="" asp-for="Name" class="form-control" placeholder="Name">
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label" asp-for="Surname">Surname</label>
+                                <div class="col-md-2">
+                                    <input type="text" asp-for="Surname" class="form-control" placeholder="Surname">
+                                    <span asp-validation-for="Surname" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label" asp-for="BirthDate">Birth Date</label>
+                                <div class="col-md-2">
+                                    <input asp-for="BirthDate" type="date" class="form-control">
+                                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label" asp-for="GsmNo">Gsm No</label>
+                                <div class="col-md-2">
+                                    <input type="number" asp-for="GsmNo" class="form-control" placeholder="Gsm No">
+                                    <span asp-validation-for="GsmNo" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label" asp-for="Email">Email</label>
+                                <div class="col-md-2">
+                                    <div class="input-group">
+                                        <input type="email" asp-for="Email" class="form-control" placeholder="Email">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-envelope"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa fa-check-square fa-lg"></i> Save
+                            </button>
+                            <a asp-action="Index" class="btn btn-danger">
+                                <i class="fa fa-minus-square fa-lg"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--/.col-->
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("BirthDate").valueAsDate = new Date();
+</script>

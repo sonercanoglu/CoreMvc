@@ -1,0 +1,147 @@
+﻿@model UserView
+@{
+    ViewData["Title"] = "User- New";
+}
+
+<!-- Breadcrumb-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a asp-action="Index">Users</a>
+    </li>
+    <li class="breadcrumb-item active">New</li>
+</ol>
+
+<div class="container-fluid">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>New User</strong>
+                        Form
+                    </div>
+                    <form asp-action="Create" method="post" class="form-horizontal">
+                        @Html.AntiForgeryToken()
+                        <div class="card-body">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label" asp-for="Employee_Id">Employee</label>
+                                <div class="col-md-2">
+                                    <div class="dropdown">
+                                        <button class="form-control dropdown-toggle" type="button" id="dropdownEmployee" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                            Select Employee
+                                        </button>
+                                        <div id="menuEmployee" class="dropdown-menu" aria-labelledby="dropdownEmployee">
+                                            <input type="search" class="form-control" id="searchEmployee" placeholder="Employee" autofocus="autofocus">
+                                            <div id="menuItemsEmployee">
+                                                @{
+                                                    foreach (SelectListItem f in ViewBag.EmployeeList)
+                                                    {
+                                                        <input type="button" class="dropdown-item dropdown-itemEmployee" value="@f.Text" alt="@f.Value" />
+                                                    }
+                                                }
+                                            </div>
+                                            <div id="emptyEmployee" class="dropdown-header" style="display:none">No Employee Exist</div>
+                                        </div>
+                                    </div>
+
+                                    @Html.Hidden("Employee_Id", Model.Employee_Id)
+                                    <span asp-validation-for="Employee_Id" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label" asp-for="Username">Username</label>
+                                <div class="col-md-2">
+                                    <input type="text" asp-for="Username" class="form-control" placeholder="Username">
+                                    <span asp-validation-for="Username" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label" asp-for="Password">Password</label>
+                                <div class="col-md-2">
+                                    <input type="password" asp-for="Password" class="form-control" placeholder="Password">
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-1 col-form-label">Roles</label>
+                                <div class="col-md-2">
+
+                                    @for (int i = 0; i < Model.UserRoleViews.Count(); i++)
+                                    {
+                                    <div class="form-check" style="padding:0px">
+
+                                        <input asp-for="UserRoleViews[i].Selected" type="checkbox" />
+                                        <label asp-for="UserRoleViews[i].Name">@Model.UserRoleViews[i].Name</label>
+                                        <input asp-for="UserRoleViews[i].Id" type="hidden" />
+                                        <input type="hidden" asp-for="UserRoleViews[i].Name" />
+
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa fa-check-square fa-lg"></i> Save
+                            </button>
+                            <a asp-action="Index" class="btn btn-danger">
+                                <i class="fa fa-minus-square fa-lg"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--/.col-->
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    //Find the input search box
+    let searchEmployee = document.getElementById("searchEmployee");
+
+    //Find every item inside the dropdown
+    let itemsEmployee = document.getElementsByClassName("dropdown-itemEmployee");
+
+    //Capture the event when user types into the search box
+    window.addEventListener('input', function () {
+        filter(searchEmployee.value.trim().toLowerCase())
+    })
+
+    //For every word entered by the user, check if the symbol starts with that word
+    //If it does show the symbol, else hide it
+    function filter(word) {
+        let length = itemsEmployee.length
+        let collection = []
+        let hidden = 0
+        for (let i = 0; i < length; i++) {
+            if (itemsEmployee[i].value.toLowerCase().startsWith(word)) {
+                $(itemsEmployee[i]).show()
+            }
+            else {
+                $(itemsEmployee[i]).hide()
+                hidden++
+            }
+        }
+
+        //If all items are hidden, show the empty view
+        if (hidden === length) {
+            $('#emptyEmployee').show()
+        }
+        else {
+            $('#emptyEmployee').hide()
+        }
+    }
+
+    //If the user clicks on any item, set the title of the button as the text of the item
+    $('#menuItemsEmployee').on('click', '.dropdown-itemEmployee', function () {
+        $('#dropdownEmployee').text($(this)[0].value);
+        $("#dropdownEmployee").dropdown("toggle");
+        $('#Employee_Id').val($(this)[0].alt);
+    })
+
+</script>
+
